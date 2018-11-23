@@ -14,8 +14,7 @@ const routes = (app) => {
 	 //Update Data
    app.put('/api/v1/parcels/:id', Parcel.updateParcel);
    app.delete('/api/v1/parcels/:id', Parcel.deleteParcel);
-   app.get('/api/v1/user/:id/parcels/:id', Parcel.getSingleParcel);
-   //app.get('/api/user/parcels/:userId', UsersAndParcels.UsersAndParcel);
+   app.get('/api/v1/user/:id/parcels/:id', User.getSingleParcel);
 
 }
 
