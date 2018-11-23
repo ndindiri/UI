@@ -1,21 +1,18 @@
 import { Parcel, User } from '../controllers';
-//import UsersAndParcels from '../controllers';
+
 
 const routes = (app) => {
 	app.get('/api/v1/', (req, res) => {
 		res.status(200).json({ 'message': 'Welcometo to parcel api'});
 	});
-
-	// To Get All parcels 
+ 
 	app.get('/api/v1/parcels', Parcel.getAllParcels);
-
-	// To Post on parcels
+	app.get('/api/v1/users', User.getAllUsers);
 	app.post('/api/v1/parcels', Parcel.addParcel);
-	 //Update Data
-   app.put('/api/v1/parcels/:id', Parcel.updateParcel);
-   app.delete('/api/v1/parcels/:id', Parcel.deleteParcel);
-   app.get('/api/v1/user/:id/parcels/:id', User.getSingleParcel);
-
+    app.put('/api/v1/parcels/:id', Parcel.updateParcel);
+    app.delete('/api/v1/parcels/:id', Parcel.deleteParcel);
+    app.get('/api/v1/users/:id/parcels/:id', User.getSingleUser);
+    app.get('/api/v1/users/:id', User.getSingleUser);
 }
 
 export default routes;
