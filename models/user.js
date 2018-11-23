@@ -1,4 +1,4 @@
-class User {
+class Users {
   constructor(userId, name, email) {
     this.setUserId(userId);
     this.setName(name);
@@ -27,4 +27,4 @@ class User {
   }
 }
 
-export default User;
+export default Users;
