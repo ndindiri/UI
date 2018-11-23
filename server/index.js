@@ -12,12 +12,6 @@ app.use(logger('dev'));
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-app.set('view engine', 'ejs');
-app.use('/assets', express.static('stuff'), (req,res, next) =>{
-    console.log(req.url);
-    next();
-});
-
 routes(app)
 
 //PORT 
