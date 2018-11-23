@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(logger('dev'));
 
-var urlencodedParser = bodyParser.urlencoded({ extended: false });
+let urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 routes(app)
 
