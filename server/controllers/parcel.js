@@ -28,18 +28,12 @@ class Parcel {
 		res.send(parcel);
 	};
 	static updateParcel =  (req, res) =>{
-	
-    // Look up the parcel
-    //If not existing then return 404
     const parcel = parcels.find(p => p.id === parseInt(req.params.id));
-     if (!parcel) return res.status(404).send('The parcel with the the the given Id was not found');
-     //Validte pp
-     //If invalid, return 400 - Bad request
-     
+     if (!parcel) return res.status(404).send('The parcel with the the the given Id was not found');//If not existing then return 404
      const {error} = validateParcel(req.body); //result.error
-     if (error) return res.status(400).send(error.details[0].message);
+     if (error) return res.status(400).send(error.details[0].message);//If invalid, return 400 - Bad request
      //Update parcel
-    parcel.userId = req.body.userId;
+    parcel.id = req.body.id;
     parcel.NameOfParcl = req.body.NameOfParcel;
     parcel.CountryFrom = req.body.CountryFrom;
     parcel.DeliveryCountry = req.body.DeliveryCountry;
@@ -53,15 +47,12 @@ class Parcel {
      res.send(parcel);
 };
      static deleteParcel = (req, res) =>{
-    //Look up the parcel
-    //Not existing then return 404  
+     
      const parcel = parcels.find(p => p.id === parseInt(req.params.id));
-     if (!parcel) return res.status(404).send('The parcel with the the the given Id was not found');    
-    //Delete    
+     if (!parcel) return res.status(404).send('The parcel with the the the given Id was not found'); //Not existing then return 404      
      const index =parcels.indexOf(parcel);
-     parcels.splice(index, 1);
-    //Return the same parcel
-    res.send(parcel);
+     parcels.splice(index, 1);    //Delete 
+    res.send(parcel);//Return the same parcel
 };
     static getSingleParcel = (req, res) =>{
 
