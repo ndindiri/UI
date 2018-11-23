@@ -69,12 +69,7 @@ class Parcel {
 	if (!parcel) return res.status(404).send('The parcel with the the the given Id was not found');
 	res.send(parcel);
 };
-    static getUserIdParcel = (req, res) =>{
-             const user = parcels.find(p => p.userId === parseInt(req.params.userId));
-             if (!user) return res.status(404).send('The user with the the the given Id was not found');
-	         res.send(user);
-    };
-
+   
 }
 
 export default Parcel;
